@@ -149,7 +149,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1246 words)
+                    7 minutes read (About 990 words)
                 </span>
                 
                 
@@ -167,42 +167,42 @@
 <p>适用客户端：windows 10 、 移动端</p>
 <h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p><strong>1.注册vultr账号&充值</strong></p>
 <p>一般需要选购国外服务器，而国内的服务器提供商虽然可以买到境外服务器，但是一般都禁止安装shadowsocks服务，这里推荐 <a href="https://www.vultr.com/?ref=7841798-4F" target="_blank" rel="noopener">vultr</a>（使用该链接注册提供50$的体验费用，如果活动已过，通过访问 <a href="https://www.vultr.com/?ref=7754579" target="_blank" rel="noopener">vultr2</a> 注册账号）。</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229133949299.png" alt="image-20191229133949299"></p>
+<p><img src="/images/image-20191229133949299.png" alt="image-20191229133949299"></p>
 <p>账号注册完毕，点击billing可以来到充值界面，并且这个网站可以使用支付宝 、 微信进行支付，非常方便。</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229134556735.png" alt="image-20191229134556735"></p>
+<p><img src="/images/image-20191229134556735.png" alt="image-20191229134556735"></p>
 <p>支付完毕，账号就可以有60$到账。</p>
 <p><strong>2.下载服务器连接工具：mobaxterm</strong></p>
 <p>mobaxterm，是一个免费的，功能齐全的远程连接工具，界面美观简洁。</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229140230577.png" alt="image-20191229140230577"></p>
+<p><img src="/images/image-20191229140230577.png" alt="image-20191229140230577"></p>
 <p><strong>3.选购合适的vps&部署shadowsocks服务端</strong></p>
 <p>点击左侧products</p>
 <p><strong>选择服务器类型</strong></p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229135110984.png" alt="image-20191229135110984"></p>
+<p><img src="/images/image-20191229135110984.png" alt="image-20191229135110984"></p>
 <p><strong>选择服务器地点</strong></p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229135230391.png" alt="image-20191229135230391"></p>
+<p><img src="/images/image-20191229135230391.png" alt="image-20191229135230391"></p>
 <p><strong>选择服务器系统</strong></p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229135333471.png" alt="image-20191229135333471"></p>
+<p><img src="/images/image-20191229135333471.png" alt="image-20191229135333471"></p>
 <p><strong>选择服务器规格</strong></p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229141255389.png" alt="image-20191229141255389"></p>
+<p><img src="/images/image-20191229141255389.png" alt="image-20191229141255389"></p>
 <p>最后点击<strong>deploy now</strong>， 服务器就开始部署了。</p>
 <p><strong>4.检查服务器是否可用</strong></p>
 <p>由于监管原因，有些服务器ip地址或者ip地址是被封禁的，所以我们首先需要检查一下服务器是否可用，如果不可用，则你需要删除这个服务器实例，回到<strong>步骤3</strong>重新部署一个服务器，你可以选择一下子部署多个，然后挨个测试，遇到成功的把多余的删除即可。</p>
 <ul>
 <li>检查ip是否可用</li>
 </ul>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229142833685.png" alt="image-20191229142833685"></p>
+<p><img src="/images/image-20191229142833685.png" alt="image-20191229142833685"></p>
 <p>如上图，当你的服务器部署完毕，会提供给你一个ipv4地址，你在本地机器上ping 这个ip地址，如果最后ping不通，则服务器不可用。</p>
 <ul>
 <li>检查端口是否可用</li>
 </ul>
 <p>当你可以ping通你的ip，别高兴太早，可能你的22端口被封，检查端口，你需要进入mobaxterm，</p>
 <p>点击session</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229143257182.png" alt="image-20191229143257182"></p>
-<p>选择ssh<img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229143331431.png" alt="image-20191229143331431"></p>
+<p><img src="/images/image-20191229143257182.png" alt="image-20191229143257182"></p>
+<p>选择ssh<img src="/images/image-20191229143331431.png" alt="image-20191229143331431"></p>
 <p>输入服务器信息</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229143426286.png" alt="image-20191229143426286"></p>
+<p><img src="/images/image-20191229143426286.png" alt="image-20191229143426286"></p>
 <p>如果端口没有封，他会提示你输入登录密码，登录密码需要你在vultr中点击服务器查看具体信息。</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229143804263.png" alt="image-20191229143804263"></p>
+<p><img src="/images/image-20191229143804263.png" alt="image-20191229143804263"></p>
 <p><strong>5.部署shadowsocks服务端</strong></p>
 <p>进入之后，部署很简单，只需要按顺序输入几条命令。</p>
 <p>1.下载shadowsocks</p>
@@ -217,17 +217,17 @@
 <p>总共三条命令，中间会提示你输入服务器IP地址和端口，端口是你自己指定，选择范围在1-65536。</p>
 <p>另外，中间还会选择加密方式，一般选择7，即aes-256-cfb。</p>
 <p>完成之后，会给你一个服务器端的具体信息清单，你记得截图保存。</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229144549680.png" alt="image-20191229144549680"></p>
+<p><img src="/images/image-20191229144549680.png" alt="image-20191229144549680"></p>
 <p><strong>6.客户端安装shadowsocks</strong></p>
 <p>去下载列表中选择对应版本<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">shadowsocks</a>，</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229144849547.png" alt="image-20191229144849547"></p>
+<p><img src="/images/image-20191229144849547.png" alt="image-20191229144849547"></p>
 <p>解压之后，直接点击纸飞机图标运行程序，根据你自己的配置填写进去就可，</p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229145029210.png" alt="image-20191229145029210"></p>
+<p><img src="/images/image-20191229145029210.png" alt="image-20191229145029210"></p>
 <p><strong>7.设置pac</strong></p>
 <p>如果不设置pac，所有的浏览器访问都需要经过代理，包括国内的，这是没必要的，会造成响应慢，pac模式指的是只有被墙的网站才使用代理访问。</p>
 <p>你的右下角任务栏里会有小飞机图标，右键 -> 系统代理 -> pac模式。</p>
 <p><strong>8.开始你的科学上网</strong></p>
-<p><img src="ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/image-20191229145503594.png" alt="image-20191229145503594"></p>
+<p><img src="/images/image-20191229145503594.png" alt="image-20191229145503594"></p>
 </body></html>
         </div>
         
