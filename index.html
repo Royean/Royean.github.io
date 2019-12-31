@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en">
+<html  lang="zh">
 <head>
     <meta charset="utf-8" />
 
@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Gujiewei&#39;s Blog">
 <meta property="og:description" content="Gujiewei">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:author" content="roy">
 <meta name="twitter:card" content="summary">
@@ -98,16 +98,13 @@
                 <a class="navbar-item"
                 href="/tags">Tags</a>
                 
-                <a class="navbar-item"
-                href="/about">About</a>
-                
             </div>
             
             <div class="navbar-end">
                 
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -127,462 +124,6 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-31T06:25:44.725Z">2019-12-31</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 776 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor-1577773544719/">ss科学上网配置.assets/visitor-1577773544719</a>
-            
-        </h1>
-        <div class="content">
-            <!DOCTYPE html><html><head>
-    <meta http-equiv="Content-type" content="text/html; charset=gb2312">
-    <title>Sina Visitor System</title>
-</head>
-<body>
-<span id="message"></span>
-<script type="text/javascript" src="/js/visitor/mini_original.js?v=20161116"></script>
-<script type="text/javascript">
-    window.use_fp = "1" == "1"; // �Ƿ�ɼ��豸ָ�ơ�
-    var url = url || {};
-    (function () {
-        this.l = function (u, c) {
-            try {
-                var s = document.createElement("script");
-                s.type = "text/javascript";
-                s[document.all ? "onreadystatechange" : "onload"] = function () {
-
-                    if (document.all && this.readyState != "loaded" && this.readyState != "complete") {
-                        return
-                    }
-                    this[document.all ? "onreadystatechange" : "onload"] = null;
-                    this.parentNode.removeChild(this);
-                    if (c) {
-                        c()
-                    }
-                };
-                s.src = u;
-                document.getElementsByTagName("head")[0].appendChild(s)
-            } catch (e) {
-            }
-        };
-    }).call(url);
-
-    // ������ڡ�
-    wload(function () {
-
-        try {
-
-            var need_restore = "1" == "1"; // �Ƿ��߻ָ��������̡�
-
-            // �����Ҫ�߻ָ��������̣����Դ� cookie ��ȡ�û����ݡ�
-            if (!need_restore || !Store.CookieHelper.get("SRF")) {
-
-                // ����ȡʧ���ߴ����ÿ����̡�
-                // ����ִ��ʱ����������� 3s��������Ϊ������
-                var error_timeout = window.setTimeout("error_back()", 5000);
-
-                tid.get(function (tid, where, confidence) {
-                    // ȡָ��˳����ɣ�������� timeout ��
-                    window.clearTimeout(error_timeout);
-                    incarnate(tid, where, confidence);
-                });
-            } else {
-                // �û����ݴ��ڣ����Իָ��û����ݡ�
-                restore();
-            }
-        } catch (e) {
-            // ������
-            error_back();
-        }
-    });
-
-    // �����ء� �ص�������
-    var return_back = function (response) {
-
-        if (response["retcode"] == 20000000) {
-            back();
-        } else {
-            // ������
-            error_back(response["msg"]);
-        }
-    };
-
-    // ��ת�س�ʼ��ַ��
-    var back = function() {
-
-        var url = "https://photo.weibo.com/6098186068/photos/detail/photo_id/4455557292490755/album_id/4386753950694074";
-        if (url != "none") {
-            window.location.href = url;
-        }
-    };
-
-    // ����㲥��
-    var cross_domain = function (response) {
-
-        var from = "weibo";
-        if (response["retcode"] == 20000000) {
-
-            var crossdomain_host = "login.sina.com.cn";
-            if (crossdomain_host != "none") {
-
-                var cross_domain_intr = window.location.protocol + "//" + crossdomain_host + "/visitor/visitor?a=crossdomain&cb=return_back&s=" +
-                        encodeURIComponent(response["data"]["sub"]) + "&sp=" + encodeURIComponent(response["data"]["subp"]) + "&from=" + from + "&_rand=" + Math.random();
-                url.l(cross_domain_intr);
-            } else {
-
-                back();
-            }
-        } else {
-
-            // ������
-            error_back(response["msg"]);
-        }
-    };
-
-    // Ϊ�û�����ÿ����� ��
-    var incarnate = function (tid, where, conficence) {
-
-        var gen_conf = "";
-        var from = "weibo";
-        var incarnate_intr = window.location.protocol + "//" + window.location.host + "/visitor/visitor?a=incarnate&t=" +
-                encodeURIComponent(tid) + "&w=" + encodeURIComponent(where) + "&c=" + encodeURIComponent(conficence) +
-                "&gc=" + encodeURIComponent(gen_conf) + "&cb=cross_domain&from=" + from + "&_rand=" + Math.random();
-        url.l(incarnate_intr);
-    };
-
-    // �ָ��û���ʧ�����ݡ�
-    var restore = function () {
-
-        var from = "weibo";
-        var restore_intr = window.location.protocol + "//" + window.location.host +
-                "/visitor/visitor?a=restore&cb=restore_back&from=" + from + "&_rand=" + Math.random();
-
-        url.l(restore_intr);
-    };
-
-    // ����ָ���ʧ�����ݡ�
-    var restore_back = function (response) {
-
-        // ���ݻָ��ɹ��߹㲥���̣������ߴ����ÿ����̡�
-        if (response["retcode"] == 20000000) {
-
-            var url = "https://photo.weibo.com/6098186068/photos/detail/photo_id/4455557292490755/album_id/4386753950694074";
-            var alt = response["data"]["alt"];
-            var savestate = response["data"]["savestate"];
-            if (alt != "") {
-                requrl = (url == "none") ? "" : "&url=" + encodeURIComponent(url);
-                var params = "entry=sso&alt=" + encodeURIComponent(alt) + "&returntype=META" +
-                    "&gateway=1&savestate=" + encodeURIComponent(savestate) + requrl;
-                window.location.href = "https://login.sina.com.cn/sso/login.php?" + params;
-            } else {
-
-                cross_domain(response);
-            }
-        } else if(response['retcode'] == 50111261 && isInIframe()) {
-            //do nothing
-        } else {
-
-            tid.get(function (tid, where, confidence) {
-                incarnate(tid, where, confidence);
-            });
-        }
-    };
-
-    // ����������ص�¼ҳ��
-    var error_back = function (msg) {
-
-        var url = "https://photo.weibo.com/6098186068/photos/detail/photo_id/4455557292490755/album_id/4386753950694074";
-        var clientType = "pc";
-        if (url != "none") {
-
-            if (url.indexOf("ssovie4c55=0") === -1) {
-                url += (((url.indexOf("?") === -1) ? "?" : "&") + "ssovie4c55=0");
-            }
-            if (clientType == "mobile") {
-            	window.location.href = "https://passport.weibo.cn/signin/login?r="+url;
-            } else{
-            	window.location.href = "http://weibo.com/login.php";
-            }
-        } else {
-
-            if(document.getElementById("message")) {
-                document.getElementById("message").innerHTML = "Error occurred" + (msg ? (": " + msg) : ".");
-            }
-        }
-    };
-
-    var isInIframe = function () {
-        try {
-            return window.self !== window.top;
-        } catch (e) {
-            return true;
-        }
-    };
-
-</script>
-
-</body></html>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-31T06:25:29.220Z">2019-12-31</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 776 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor/">ss科学上网配置.assets/visitor</a>
-            
-        </h1>
-        <div class="content">
-            <!DOCTYPE html><html><head>
-    <meta http-equiv="Content-type" content="text/html; charset=gb2312">
-    <title>Sina Visitor System</title>
-</head>
-<body>
-<span id="message"></span>
-<script type="text/javascript" src="/js/visitor/mini_original.js?v=20161116"></script>
-<script type="text/javascript">
-    window.use_fp = "1" == "1"; // �Ƿ�ɼ��豸ָ�ơ�
-    var url = url || {};
-    (function () {
-        this.l = function (u, c) {
-            try {
-                var s = document.createElement("script");
-                s.type = "text/javascript";
-                s[document.all ? "onreadystatechange" : "onload"] = function () {
-
-                    if (document.all && this.readyState != "loaded" && this.readyState != "complete") {
-                        return
-                    }
-                    this[document.all ? "onreadystatechange" : "onload"] = null;
-                    this.parentNode.removeChild(this);
-                    if (c) {
-                        c()
-                    }
-                };
-                s.src = u;
-                document.getElementsByTagName("head")[0].appendChild(s)
-            } catch (e) {
-            }
-        };
-    }).call(url);
-
-    // ������ڡ�
-    wload(function () {
-
-        try {
-
-            var need_restore = "1" == "1"; // �Ƿ��߻ָ��������̡�
-
-            // �����Ҫ�߻ָ��������̣����Դ� cookie ��ȡ�û����ݡ�
-            if (!need_restore || !Store.CookieHelper.get("SRF")) {
-
-                // ����ȡʧ���ߴ����ÿ����̡�
-                // ����ִ��ʱ����������� 3s��������Ϊ������
-                var error_timeout = window.setTimeout("error_back()", 5000);
-
-                tid.get(function (tid, where, confidence) {
-                    // ȡָ��˳����ɣ�������� timeout ��
-                    window.clearTimeout(error_timeout);
-                    incarnate(tid, where, confidence);
-                });
-            } else {
-                // �û����ݴ��ڣ����Իָ��û����ݡ�
-                restore();
-            }
-        } catch (e) {
-            // ������
-            error_back();
-        }
-    });
-
-    // �����ء� �ص�������
-    var return_back = function (response) {
-
-        if (response["retcode"] == 20000000) {
-            back();
-        } else {
-            // ������
-            error_back(response["msg"]);
-        }
-    };
-
-    // ��ת�س�ʼ��ַ��
-    var back = function() {
-
-        var url = "https://photo.weibo.com/6098186068/photos/detail/photo_id/4455557292490755/album_id/4386753950694074";
-        if (url != "none") {
-            window.location.href = url;
-        }
-    };
-
-    // ����㲥��
-    var cross_domain = function (response) {
-
-        var from = "weibo";
-        if (response["retcode"] == 20000000) {
-
-            var crossdomain_host = "login.sina.com.cn";
-            if (crossdomain_host != "none") {
-
-                var cross_domain_intr = window.location.protocol + "//" + crossdomain_host + "/visitor/visitor?a=crossdomain&cb=return_back&s=" +
-                        encodeURIComponent(response["data"]["sub"]) + "&sp=" + encodeURIComponent(response["data"]["subp"]) + "&from=" + from + "&_rand=" + Math.random();
-                url.l(cross_domain_intr);
-            } else {
-
-                back();
-            }
-        } else {
-
-            // ������
-            error_back(response["msg"]);
-        }
-    };
-
-    // Ϊ�û�����ÿ����� ��
-    var incarnate = function (tid, where, conficence) {
-
-        var gen_conf = "";
-        var from = "weibo";
-        var incarnate_intr = window.location.protocol + "//" + window.location.host + "/visitor/visitor?a=incarnate&t=" +
-                encodeURIComponent(tid) + "&w=" + encodeURIComponent(where) + "&c=" + encodeURIComponent(conficence) +
-                "&gc=" + encodeURIComponent(gen_conf) + "&cb=cross_domain&from=" + from + "&_rand=" + Math.random();
-        url.l(incarnate_intr);
-    };
-
-    // �ָ��û���ʧ�����ݡ�
-    var restore = function () {
-
-        var from = "weibo";
-        var restore_intr = window.location.protocol + "//" + window.location.host +
-                "/visitor/visitor?a=restore&cb=restore_back&from=" + from + "&_rand=" + Math.random();
-
-        url.l(restore_intr);
-    };
-
-    // ����ָ���ʧ�����ݡ�
-    var restore_back = function (response) {
-
-        // ���ݻָ��ɹ��߹㲥���̣������ߴ����ÿ����̡�
-        if (response["retcode"] == 20000000) {
-
-            var url = "https://photo.weibo.com/6098186068/photos/detail/photo_id/4455557292490755/album_id/4386753950694074";
-            var alt = response["data"]["alt"];
-            var savestate = response["data"]["savestate"];
-            if (alt != "") {
-                requrl = (url == "none") ? "" : "&url=" + encodeURIComponent(url);
-                var params = "entry=sso&alt=" + encodeURIComponent(alt) + "&returntype=META" +
-                    "&gateway=1&savestate=" + encodeURIComponent(savestate) + requrl;
-                window.location.href = "https://login.sina.com.cn/sso/login.php?" + params;
-            } else {
-
-                cross_domain(response);
-            }
-        } else if(response['retcode'] == 50111261 && isInIframe()) {
-            //do nothing
-        } else {
-
-            tid.get(function (tid, where, confidence) {
-                incarnate(tid, where, confidence);
-            });
-        }
-    };
-
-    // ����������ص�¼ҳ��
-    var error_back = function (msg) {
-
-        var url = "https://photo.weibo.com/6098186068/photos/detail/photo_id/4455557292490755/album_id/4386753950694074";
-        var clientType = "pc";
-        if (url != "none") {
-
-            if (url.indexOf("ssovie4c55=0") === -1) {
-                url += (((url.indexOf("?") === -1) ? "?" : "&") + "ssovie4c55=0");
-            }
-            if (clientType == "mobile") {
-            	window.location.href = "https://passport.weibo.cn/signin/login?r="+url;
-            } else{
-            	window.location.href = "http://weibo.com/login.php";
-            }
-        } else {
-
-            if(document.getElementById("message")) {
-                document.getElementById("message").innerHTML = "Error occurred" + (msg ? (": " + msg) : ".");
-            }
-        }
-    };
-
-    var isInIframe = function () {
-        try {
-            return window.self !== window.top;
-        } catch (e) {
-            return true;
-        }
-    };
-
-</script>
-
-</body></html>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-12-29T05:24:06.000Z">2019-12-29</time>
                 
                 <div class="level-item">
@@ -593,7 +134,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 997 words)
+                    7 分钟 读完 (大约 997 个字)
                 </span>
                 
                 
@@ -615,7 +156,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/29/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/12/29/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -656,7 +197,7 @@
                     
                     
                     <p class="is-size-6 is-block">
-                        data science
+                        大数据科学
                     </p>
                     
                     
@@ -672,11 +213,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        文章
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            3
+                            1
                         </p>
                     </a>
                 </div>
@@ -684,7 +225,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Category
+                        分类
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -696,7 +237,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tag
+                        标签
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
@@ -709,7 +250,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Royean" target="_blank">
-                Follow</a>
+                关注我</a>
         </div>
         
         
@@ -762,7 +303,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            链接
         </h3>
         <ul class="menu-list">
         
@@ -799,7 +340,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                分类
             </h3>
             <ul class="menu-list">
             <li>
@@ -819,7 +360,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            标签云
         </h3>
         <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a>
     </div>
@@ -831,46 +372,8 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            最新文章
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor-1577773544719/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ss科学上网配置.assets/visitor-1577773544719">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-31T06:25:44.725Z">2019-12-31</time></div>
-                    <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor-1577773544719/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ss科学上网配置.assets/visitor-1577773544719</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ss科学上网配置.assets/visitor">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-31T06:25:29.220Z">2019-12-31</time></div>
-                    <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ss科学上网配置.assets/visitor</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -898,17 +401,17 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            归档
         </h3>
         <ul class="menu-list">
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">December 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -922,7 +425,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -952,46 +455,8 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            最新文章
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor-1577773544719/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ss科学上网配置.assets/visitor-1577773544719">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-31T06:25:44.725Z">2019-12-31</time></div>
-                    <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor-1577773544719/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ss科学上网配置.assets/visitor-1577773544719</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ss科学上网配置.assets/visitor">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-31T06:25:29.220Z">2019-12-31</time></div>
-                    <a href="/2019/12/31/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE.assets/visitor/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ss科学上网配置.assets/visitor</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -1019,17 +484,17 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            归档
         </h3>
         <ul class="menu-list">
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
                 <span class="level-start">
-                    <span class="level-item">December 2019</span>
+                    <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -1043,7 +508,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1089,7 +554,7 @@
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
+<script>moment.locale("zh-CN");</script>
 
 <script>
 var IcarusThemeSettings = {
@@ -1161,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1185,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1197,11 +662,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
             CONTENT_URL: '/content.json',
         };
