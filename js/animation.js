@@ -1,4 +1,4 @@
-(function () {
+<html><head></head><body>(function () {
     function $() {
         return Array.prototype.slice.call(document.querySelectorAll.apply(document, arguments));
     }
@@ -39,3 +39,4 @@
         });
     });
 })();
+</body></html>

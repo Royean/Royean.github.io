@@ -7,18 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: shadowsocks - Gujiewei&#39;s Blog</title>
+<title>SSM框架学习——数据库、url-pattern导致的问题 - Gujiewei&#39;s Blog</title>
 
 
-    <meta name="description" content="Gujiewei">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gujiewei&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/shadowsocks/index.html">
+    <meta name="description" content="前言在学习SSM框架时，导入一个已有项目，修改了mysql等一系列常规配置后，发现要实现简单的运行，也存在着系列的问题，感觉也比较典型，作如下记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM框架学习——数据库、url-pattern导致的问题">
+<meta property="og:url" content="http://yoursite.com/2020/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/SSM%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81url-pattern%E5%AF%BC%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Gujiewei&#39;s Blog">
-<meta property="og:description" content="Gujiewei">
+<meta property="og:description" content="前言在学习SSM框架时，导入一个已有项目，修改了mysql等一系列常规配置后，发现要实现简单的运行，也存在着系列的问题，感觉也比较典型，作如下记录。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2020-01-04T08:24:06.000Z">
+<meta property="article:modified_time" content="2020-01-04T10:14:45.080Z">
 <meta property="article:author" content="roy">
+<meta property="article:tag" content="SSM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -86,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/Glogo.png" alt="Gujiewei&#39;s Blog" height="28">
+                <img src="/images/Glogo.png" alt="SSM框架学习——数据库、url-pattern导致的问题" height="28">
             
             </a>
         </div>
@@ -124,31 +127,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">shadowsocks</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-29T05:24:06.000Z">2019-12-29</time>
+                <time class="level-item has-text-grey" datetime="2020-01-04T08:24:06.000Z">2020-01-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%A1%86%E6%9E%B6/">框架</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 997 个字)
+                    3 分钟 读完 (大约 452 个字)
                 </span>
                 
                 
@@ -157,25 +153,52 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/12/29/%E8%AE%A1%E7%AE%97%E6%9C%BA/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE/">vps实现ss代理</a>
+                SSM框架学习——数据库、url-pattern导致的问题
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>通过shadowsocks来实现科学上网已经是家常便饭，今天就如何配置做一篇分享。</p>
-<h2 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h2><p>服务端：centos 7 系统</p>
-<p>适用客户端：windows 10 、 移动端</p>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p><strong>1.注册vultr账号&充值</strong></p>
-<p>一般需要选购国外服务器，而国内的服务器提供商虽然可以买到境外服务器，但是一般都禁止安装shadowsocks服务，这里推荐 <a href="https://www.vultr.com/?ref=7841798-4F" target="_blank" rel="noopener">vultr</a>（使用该链接注册提供50$的体验费用，如果活动已过，通过访问 <a href="https://www.vultr.com/?ref=7754579" target="_blank" rel="noopener">vultr2</a> 注册账号）。</p></body></html>
+            <html><head></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在学习SSM框架时，导入一个已有项目，修改了mysql等一系列常规配置后，发现要实现简单的运行，也存在着系列的问题，感觉也比较典型，作如下记录。</p>
+<a id="more"></a>
+
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><strong>1. mysql 5 迁移到 mysql 8</strong> </p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 1. connector jar包</span><br><span class="line"> connector 5.0  ->   connector 8.0</span><br><span class="line"> </span><br><span class="line"># 2. jdbc 驱动更改</span><br><span class="line">‘com.mysql.jdbc.Driver’ -> ‘com.mysql.cj.jdbc.Driver’</span><br><span class="line"></span><br><span class="line"># 3. 数据库连接的url更改</span><br><span class="line">jdbc:mysql://localhost:3306/how2java?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai</span><br></pre></td></tr></tbody></table></figure>
+
+<p>数据库设置迁移中有几个报错和注意，读者需牢记：</p>
+<ol>
+<li><p>serverTimeZone 大小写注意，错一个都不行。<br>报错形式：java.sql.SQLException: No timezone mapping entry for …</p>
+</li>
+<li><p>serverTimeZone的值设置有讲究，<br>报错形式：The server time zone value ‘ÖÐ¹ú±ê×¼Ê±¼ä’ is unrecognized</p>
+</li>
+<li><p>xml中使用实体符号代替直接输入&</p>
+<p><img src="https://s2.ax1x.com/2020/01/04/lwWwgU.png" alt></p>
+<blockquote>
+<p>否则tomcat报错如下：<br>ERROR [main] - Context initialization failed<br>org.springframework.beans.factory.xml.XmlBeanDefinitionStoreException: Line 26 in XML<br>document from class path resource [applicationContext.xml] is invalid; nested exception # is org.xml.sax.SAXParseException; lineNumber: 26; columnNumber: 90; 对实体<br>“serverTimezone” 的引用必须以 ‘;’ 分隔符结尾。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>2.  为何需要设置时区？</strong></p>
+<p>为什么普通的请求和我的时区也会有关系，时区对程序的影响是什么？</p>
+<p>请参考：<a href="https://blog.csdn.net/xiuliyan6124/article/details/80630293" target="_blank" rel="noopener">https://blog.csdn.net/xiuliyan6124/article/details/80630293</a></p>
+<p>mysql窗口中查看自己的时区是跟随系统的，而我们所在时区为东八区，你可以将时区调整为+8，或者将时区设置为Asia/shanghai即可。</p>
+<p><img src="https://s2.ax1x.com/2020/01/04/lwWM38.png" alt></p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql://localhost:3306/how2java?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>3. 访问页面后直接返回的是jsp源码</strong></p>
+<p><img src="https://s2.ax1x.com/2020/01/04/lw67ss.md.png" alt></p>
+<p>错误原因：web.xml中url pattern 中 / 和 /*的不同</p>
+<p>请参考：<a href="https://blog.csdn.net/xiuliyan6124/article/details/80630293" target="_blank" rel="noopener">https://blog.csdn.net/xiuliyan6124/article/details/80630293</a></p>
+</body></html>
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/29/%E8%AE%A1%E7%AE%97%E6%9C%BA/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/SSM/" rel="tag">SSM</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -183,9 +206,65 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.png" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="gjw0524@foxmail.com" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/12/29/%E8%AE%A1%E7%AE%97%E6%9C%BA/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE/">
+                <span class="level-item">vps实现ss代理</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -610,7 +689,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/Glogo.png" alt="Gujiewei&#39;s Blog" height="28">
+                    <img src="/images/Glogo.png" alt="SSM框架学习——数据库、url-pattern导致的问题" height="28">
                 
                 </a>
                 <p class="is-size-7">

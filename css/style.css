@@ -1,4 +1,4 @@
-/* ---------------------------------
+<html><head></head><body>/* ---------------------------------
  *       Override CSS Framework
  * --------------------------------- */
 html {
@@ -521,3 +521,4 @@ figure.highlight .section {
 .gist .file {
   all: initial;
 }
+</body></html>

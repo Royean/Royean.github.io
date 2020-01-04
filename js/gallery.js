@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+<html><head></head><body>document.addEventListener('DOMContentLoaded', function () {
     if (typeof ($.fn.lightGallery) === 'function') {
         $('.article').lightGallery({ selector: '.gallery-item' });
     }
@@ -8,4 +8,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         $('.justified-gallery').justifiedGallery();
     }
-});
+});</body></html>

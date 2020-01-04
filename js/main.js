@@ -1,4 +1,4 @@
-(function ($) {
+<html><head></head><body>(function ($) {
     $('.article img:not(".not-gallery-item")').each(function () {
         // wrap images with link and add caption if possible
         if ($(this).parent('a').length === 0) {
@@ -94,3 +94,4 @@
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
 })(jQuery);
+</div></div></body></html>
