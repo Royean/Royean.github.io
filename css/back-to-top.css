@@ -1,4 +1,4 @@
-<html><head></head><body>#back-to-top {
+#back-to-top {
     position: fixed;
     padding: 8px 0;
     transition: 0.4s ease opacity, 0.4s ease width, 0.4s ease transform, 0.4s ease border-radius;
@@ -12,4 +12,4 @@
 }
 #back-to-top.rise-up {
     transform: translateY(0);
-}</body></html>
+}
