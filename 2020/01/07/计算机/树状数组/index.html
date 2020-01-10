@@ -7,21 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>数字手写识别——Java实现KNN算法 - Gujiewei&#39;s Blog</title>
+<title>树状数组 - Gujiewei&#39;s Blog</title>
 
 
-    <meta name="description" content="引言手写识别也是当前机器学习的一大热点，数字手写识别是手写识别中的基础，我们用到的是knn算法，今天给大家讲一下我的实现方法；  环境IDE：Eclipse语言：Java">
+    <meta name="description" content="应用一个用来快速计算数组前缀和的数据结构，就像一个数可以用2的多次幂的组合相加表示，一个数组的前缀和也可以是多个序列的加和表示，二者之间也存在着一些巧妙的联系。 如下图所示，A数组是原数组，C数组是前缀和数组，从这个结构来看，C数组的和计算是一个树状的形式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字手写识别——Java实现KNN算法">
-<meta property="og:url" content="http://yoursite.com/2018/08/10/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E5%AD%97%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB%E2%80%94%E2%80%94Java%E5%AE%9E%E7%8E%B0KNN%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="树状数组">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="Gujiewei&#39;s Blog">
-<meta property="og:description" content="引言手写识别也是当前机器学习的一大热点，数字手写识别是手写识别中的基础，我们用到的是knn算法，今天给大家讲一下我的实现方法；  环境IDE：Eclipse语言：Java">
+<meta property="og:description" content="应用一个用来快速计算数组前缀和的数据结构，就像一个数可以用2的多次幂的组合相加表示，一个数组的前缀和也可以是多个序列的加和表示，二者之间也存在着一些巧妙的联系。 如下图所示，A数组是原数组，C数组是前缀和数组，从这个结构来看，C数组的和计算是一个树状的形式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2018-08-10T04:58:22.000Z">
-<meta property="article:modified_time" content="2020-01-05T12:10:18.248Z">
+<meta property="article:published_time" content="2020-01-07T15:35:44.000Z">
+<meta property="article:modified_time" content="2020-01-10T13:26:50.260Z">
 <meta property="article:author" content="roy">
-<meta property="article:tag" content="KNN">
+<meta property="article:tag" content="树状数组">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -89,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/Glogo.png" alt="数字手写识别——Java实现KNN算法" height="28">
+                <img src="/images/Glogo.png" alt="树状数组" height="28">
             
             </a>
         </div>
@@ -134,17 +134,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-08-10T04:58:22.000Z">2018-08-10</time>
+                <time class="level-item has-text-grey" datetime="2020-01-07T15:35:44.000Z">2020-01-07</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95/">算法</a>
+                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1114 个字)
+                    9 分钟 读完 (大约 1280 个字)
                 </span>
                 
                 
@@ -153,34 +153,61 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                数字手写识别——Java实现KNN算法
+                树状数组
             
         </h1>
         <div class="content">
-            <html><head></head><body><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>手写识别也是当前机器学习的一大热点，数字手写识别是手写识别中的基础，我们用到的是knn算法，今天给大家讲一下我的实现方法；</p>
-<hr>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>IDE：Eclipse<br>语言：Java</p>
+            <html><head></head><body><h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>一个用来快速计算数组前缀和的数据结构，就像一个数可以用2的多次幂的组合相加表示，一个数组的前缀和也可以是多个序列的加和表示，二者之间也存在着一些巧妙的联系。</p>
+<p>如下图所示，A数组是原数组，C数组是前缀和数组，从这个结构来看，C数组的和计算是一个树状的形式。</p>
 <a id="more"></a>
 
-<hr>
-<h1 id="项目：数字手写识别"><a href="#项目：数字手写识别" class="headerlink" title="项目：数字手写识别"></a>项目：数字手写识别</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>数据采集</strong>：我们知道，一张图片可以被看作一个个点组成的矩阵，对于手写数字，我们只要创建一个全0数组当作背景，手写完毕把数字所占区域置为1，就可以保存当作一个样本了，如下图所示。<br><img src="https://img-blog.csdn.net/20180809223610455?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlYXNlX0dn/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><strong>算法</strong>:KNN算法，其距离度量我们采用欧拉距离。<br><strong>欧拉距离计算方法</strong>：我们将数组看作40*40向量，采用距离公式计算。</p>
-<h2 id><a href="#" class="headerlink" title></a><img src="https://img-blog.csdn.net/2018081011170515?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlYXNlX0dn/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="一、面板"><a href="#一、面板" class="headerlink" title="一、面板"></a>一、面板</h3><p>请原谅作者对于美笨拙的感知，我所绘制的界面不能够再简单了。如图:</p>
-<p><strong>面板按钮介绍</strong>：</p>
-<ul>
-<li><strong>Identify</strong>：识别手写的数字；</li>
-<li><strong>Save this example</strong>: 保存这个样例到数据集；</li>
-<li><strong>数字下拉框</strong>：相当于保存数据集的标签，例如，要保存手写“2”，先下拉选好2再保存即可</li>
-</ul>
-<p><img src="https://img-blog.csdn.net/20180809221830144?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlYXNlX0dn/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<h3 id="二、存储"><a href="#二、存储" class="headerlink" title="二、存储"></a>二、存储</h3><p>在数据读取存储上走了很多弯路，之后要好好总结下数据流的几个传输方式。<br>我们将每张图片转化为一个二维数组后，存放进一个txt文件中。对于每个单独的文件，我们要产生一个独一无二的文件名，所以文件取名方式采取“数字+随机id .txt”的格式命名，随机id我们通过构造UID对象，获取其hashcode值作为id。</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//获取下拉框选中的数字</span><br><span class="line">String selectedNumber=cbItem.getSelectedItem().toString();</span><br><span class="line">UID id=new UID();</span><br><span class="line">//文件的前缀路径</span><br><span class="line">String rootPath="C:\\Users\\DearYou\\eclipse-workspace\\GUI\\src\\Demo\\handwritingIdentify\\TrainingData\\";</span><br><span class="line">//生成文件名</span><br><span class="line">String fileName=selectedNumber+"-"+id.hashCode();</span><br><span class="line">//生成绝对路径下的一个文件</span><br><span class="line">String absoluteFile=rootPath+fileName+".txt";</span><br><span class="line">File file=new File(absoluteFile);</span><br><span class="line">try {</span><br><span class="line">	//创建文件</span><br><span class="line">	if(!file.exists())</span><br><span class="line">		file.createNewFile();</span><br><span class="line">	//将数组写入文件</span><br><span class="line">	FileWriter out = new FileWriter(file);</span><br><span class="line">	for(int i=0;i<40;i++) {</span><br><span class="line">		for(int j=0;j<40;j++) {</span><br><span class="line">			out.write(pixel[i][j]+"");</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	out.flush();</span><br><span class="line">	out.close();</span><br><span class="line">}catch(Exception e1) {</span><br><span class="line">	e1.printStackTrace();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">C1 = A1</span><br><span class="line">C2 = C1 + A2 = A1 + A2</span><br><span class="line">C3 = A3</span><br><span class="line">C4 = C2 + C3 + A4 = A1 + A2 + A3 + A4</span><br><span class="line">C5 = A5</span><br><span class="line">C6 = C5 + A6 = A5 + A6</span><br><span class="line">C7 = A7</span><br><span class="line">C8 = C4 + C6 + C7 + A8 = A1 + A2 + A3 + A4 + A5 + A6 + A7 + A8</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="三、Knn算法实现"><a href="#三、Knn算法实现" class="headerlink" title="三、Knn算法实现"></a>三、Knn算法实现</h3><p><strong>Common thinking</strong> :KNN目的是找到k个离测试样本最近的训练样本，看了下同学的方法，大多都使用了排序，但自己想想排序实在是多余，一个排序就将复杂度升到了<strong>O(nlgn)</strong>，数据容量一大，性能就会下降。<br><strong>My thinking</strong>：我想我们只要找到k个距离最近的样本，和<strong>顺序并没有关系</strong>。笔者细想了一下，我么只要构建一个大小为k的数组或者队列，对于前k个元素，我们直接放进数组，后面的n-k个元素，我们找到存放在数组中的k个元素中最大值，将二者比较看是否替代。这样我们只需遍历一遍，复杂度降为O(n),也是一种小优化。</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   伪代码：</span><br><span class="line">KnnNode[] dist=new KnnNode[k];</span><br><span class="line">for(int i=0->k){</span><br><span class="line">	KnnNode temp=new KnnNode(distance);</span><br><span class="line">	dist.append(temp)</span><br><span class="line">}</span><br><span class="line">for(the rest of test set){</span><br><span class="line">	if(temp.distance < the maximum element in dist)</span><br><span class="line">		dist[index of max]=temp;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/crop%3D30%2C0%2C640%2C422%3Bc0%3Dbaike80%2C5%2C5%2C80%2C26/sign=2c0cc709ad86c9171c4c0879f40e40e3/ac6eddc451da81cb801da03c5866d01608243143.jpg" alt></p>
+<!--more-->
 
-<h3 id="四、预测"><a href="#四、预测" class="headerlink" title="四、预测"></a>四、预测</h3><p>方法如下展示：<br><img src="https://img-blog.csdn.net/20180810123848820?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlYXNlX0dn/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>我们也可以在识别之后保存该样本，这样不能不断扩大数据集，让精度更高。</p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>虽然能在O(n)复杂度里实现Knn算法，但是我的knn延展性太差，我应该可以把这个knn的参数换成算好的距离，而不是传入的数组，这样就能将这个KNN封装好方便以后再用。<br>源代码参考地址：<a href="https://github.com/Gray-way/HandwritingRecognition" target="_blank" rel="noopener">https://github.com/Gray-way/HandwritingRecognition</a></p>
+<h1 id="树状数组的好处"><a href="#树状数组的好处" class="headerlink" title="树状数组的好处"></a>树状数组的好处</h1><p>树状数组c保存的是部分序列和，对于区间求和，比如求A[1] ~ A[6]我们需要使用C[4] + c[5] + A[6];</p>
+<p>有人说我们可以使用这样一个数组t, t[i] 保存 A[1] ~ A[i - 1]的和，这样岂不是O(1)时间就可以得到结果？</p>
+<p>的确，这样的确更快，但是如果我们需要修改原数组中的一个值，比如说A[k], 那么所有包含A[k]的T元素都应该修改，这样的代价就边成了O(n)，而树状数组只需要修改部分元素，所以树状元素其实是对<strong>查询和修改</strong>的一个折中方案。</p>
+<h1 id="详细原理"><a href="#详细原理" class="headerlink" title="详细原理"></a>详细原理</h1><p>树状数组的核心是c数组，c数组的原理是存储部分序列的和，那么这些序列是怎么划分的，怎么知道c数组元素记录的是哪段序列的和呢？</p>
+<p>我们先讲结论</p>
+<p><strong>c数组定义</strong></p>
+<blockquote>
+<p>对于c数组元素下标 i 为0x###100 (1是从右到左第一个1)，那么他记录的区间是（0x###000,0x###100],</p>
+<p>即起始位置为0x###000 + 1(对应的1变为0)，长度为100 (最右的1和它右边0构成) 的序列的和。 </p>
+</blockquote>
+<p>例如，对于上节图中才c[6]，6 = 0x110，他记录的区间位置为 (0x100, 0x110]。</p>
+<p>这就是他树状数组核心c数组的定义，就这么简单。</p>
+<p>但是，正如你想要深入了解，特殊的构造背后，是一些优美的性质。</p>
+<h1 id="c数组下标的一些性质"><a href="#c数组下标的一些性质" class="headerlink" title="c数组下标的一些性质"></a>c数组下标的一些性质</h1><p>我们从一开始的图中发现，c数组的元素构成了一个逻辑上的树，这是由于他下标和定义带来的优美性质。</p>
+<p><strong>性质 #1</strong> </p>
+<blockquote>
+<p>c数组中，下标为0x###100的元素，他有唯一的父节点,其下标为0x###100 + 0x100(最右边1和0构成的值) = 0x##1000。</p>
+</blockquote>
+<p>例如： </p>
+<p>0x###100的父节点是 0x##1000， 0x###110的父节点也是 0x##1000， 0x###111的父节点也是 0x##1000。</p>
+<p><strong>性质 #2</strong></p>
+<blockquote>
+<p>c数组中，下标为0x##1000的元素，他有如下儿子节点,其下标为 0x###100 、 0x###110 、0x###111和元素组中的A[0x###100]</p>
+</blockquote>
+<p>根据上一节对c数组的定义我们知， c数组里0x###100 、 0x###100 、0x###111构成了对0x##1000所表示区间的不重叠划分。</p>
+<p>而0x###100和0x###100我们也可以再递归拆分成几个序列的和。</p>
+<h1 id="实现操作"><a href="#实现操作" class="headerlink" title="实现操作"></a>实现操作</h1><p>我们发现，上面两条性质中，有一个重要的操作就是要获取<strong>最右边1和所有0</strong>构成的值，有什么好的实现呢？</p>
+<p>代码中，我们可以用如下操作实现：</p>
+<figure class="highlight c++ hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>{</span><br><span class="line">	<span class="hljs-keyword">return</span> x&(-x);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>计算机中，采用补码形式表示int值，补码的性质在于取相反数时，原数中所有二进制位都取反，然后末尾+1。</p>
+<p>比如二进制中6的相反数-6的求取过程如下：</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">6 = 0x110；</span><br><span class="line"></span><br><span class="line">-6 = 0x001 + 0x1= 0x10；</span><br></pre></td></tr></tbody></table></figure>
+
+<p>而<strong>6 & -6</strong> 我们发现正好等于0x10，即6的<strong>最右边1和所有0</strong>构成的值。这个很好理解，因为-6对6原位都取了反，取反+1之后从右往左的1就是原数左右边的1，自己脑子里多过遍就很好理解。</p>
+<p><strong>全部代码</strong></p>
+<figure class="highlight c++ hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> c[<span class="hljs-number">100</span>];  </span><br><span class="line"><span class="hljs-keyword">int</span> a[<span class="hljs-number">100</span>];  <span class="hljs-comment">// 注意a[0] 和 c[0]是不被使用的</span></span><br><span class="line"><span class="hljs-keyword">int</span> n = <span class="hljs-number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>{</span><br><span class="line">	<span class="hljs-keyword">return</span> x&(-x);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>{  <span class="hljs-comment">// 初始化c数组，c数组的原理对应我们之前讲的性质1</span></span><br><span class="line">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i < n;i++){</span><br><span class="line">		c[i] += a[i];</span><br><span class="line">		<span class="hljs-keyword">int</span> j = i + lowbit(i);</span><br><span class="line">		<span class="hljs-keyword">if</span>(j <= n) c[j] += c[i]; </span><br><span class="line">	}	</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>{  <span class="hljs-comment">// 求取 a[1] - a[x]的和，性质利用的是之前讲的性质2</span></span><br><span class="line">	<span class="hljs-keyword">int</span> ans =<span class="hljs-number">0</span>;</span><br><span class="line">	<span class="hljs-keyword">while</span>(x >= <span class="hljs-number">1</span>){</span><br><span class="line">		ans = ans + c[x];</span><br><span class="line">		x = x- lowbit(x);</span><br><span class="line">	}</span><br><span class="line">	<span class="hljs-keyword">return</span> ans;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 偷个懒，只需要修改上级，而不修改原来的数组 </span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> k)</span></span>{</span><br><span class="line">	<span class="hljs-keyword">while</span>(x <= n){</span><br><span class="line">		c[x] = c[x] + k; <span class="hljs-comment">// x下标要增加 </span></span><br><span class="line">		x = x + lowbit(x);  <span class="hljs-comment">// 对应的父节点也要增加 </span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{</span><br><span class="line">	<span class="hljs-keyword">int</span> b[] = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>,<span class="hljs-number">12</span>,<span class="hljs-number">14</span>,<span class="hljs-number">16</span>};</span><br><span class="line">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i < <span class="hljs-number">10</span>;i++){</span><br><span class="line">		a[i] = b[i - <span class="hljs-number">1</span>];</span><br><span class="line">	} </span><br><span class="line">	init();</span><br><span class="line">	<span class="hljs-built_in">cout</span> << getSum(<span class="hljs-number">1</span>); </span><br><span class="line">	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84" target="_blank" rel="noopener">1.树状数组-wiki</a></p>
+<p><a href="https://oi-wiki.org/ds/bit/" target="_blank" rel="noopener">2.oiwiki-树状数组</a></p>
 </body></html>
         </div>
         
@@ -188,7 +215,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/KNN/" rel="tag">KNN</a>
+                    <a class="has-link-grey -link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">树状数组</a>
                 </div>
             </div>
         </div>
@@ -250,16 +277,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/08/12/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%9F%BA%E4%BA%8E%E6%AF%94%E8%BE%83%E7%9A%84%E5%86%85%E6%8E%92%E5%BA%8F%E2%80%94%E2%80%94%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/08/%E7%90%86%E8%B4%A2/%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">基于比较的内排序——温故而知新</span>
+                <span class="level-item">基金定投</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/07/03/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E4%BA%94%E5%AD%90%E6%A3%8B(%E4%BA%BA%E6%9C%BA%E5%AF%B9%E5%BC%88)%E2%80%94%E2%80%94Java%E6%9D%83%E5%80%BC%E6%B3%95%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%9A%E5%BC%88/">
-                <span class="level-item">五子棋人机博弈</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/05/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%97%E8%8A%82%E6%B5%81%E5%92%8C%E5%AD%97%E7%AC%A6%E6%B5%81%E6%8E%A2%E7%A9%B6/">
+                <span class="level-item">字节流和字符流探究</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -910,7 +937,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/Glogo.png" alt="数字手写识别——Java实现KNN算法" height="28">
+                    <img src="/images/Glogo.png" alt="树状数组" height="28">
                 
                 </a>
                 <p class="is-size-7">
