@@ -133,6 +133,69 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-11T13:01:34.000Z">2020-01-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B8%B8%E8%AF%86/">常识</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1175 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">transient关键字与序列化</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><strong>序列化</strong></p>
+<p>在编码过程中，我们也会遇到将使用的对象信息通过网络传输到另一端，又或者将对象信息保存下来，存储成文件形式保存在电脑硬盘上，以供下次提取使用，我们把 <strong>抽取对象信息并转化为二进制形式流的过程称之为序列化过程</strong>。</p>
+<p><strong>持久化</strong></p>
+<p>将信息持久化指的是将信息存储在不易失媒介上，内存上的信息在电脑断电后都会消失，而诸如硬盘、磁带等设备上的<strong>信息不会丢失，所以称这些数据是持久</strong>的，所以和数据库相关的层也会被称为持久化层，因为他们的工作就是将数据持久化存储。</p>
+<h1 id="transient-意义"><a href="#transient-意义" class="headerlink" title="transient 意义"></a>transient 意义</h1><p>transient，英文名字就是<strong>瞬态的</strong>意思，意思是这个信息只是暂时在这个特定情况有意义，和计算机中<strong>持久的</strong>相对，需要持久化的信息代表这个信息在长远有一定意义。</p>
+<p>java中对transient关键字的作用有如下描述：</p>
+<blockquote>
+<p>Variables may be marked <code>transient</code> to indicate that they are not part of the persistent state of an object.                         —— 摘自java手册</p>
+<p>当类成员字段被表明为transient时，则表明这个字段信息不具有将其持久保存或转化的意义。</p>
+</blockquote>
+<p>transient只能用在类字段上，如果加上，表示该字段不需要转化，否则将其转化。<br><strong>Attention：不是所有的对象都能转化，只有实现了serialiable接口的类成员对象才能转化</strong></p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-01-10T14:00:44.000Z">2020-01-10</time>
                 
                 <div class="level-item">
@@ -628,56 +691,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-18T08:46:19.000Z">2019-04-18</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B8%B8%E8%AF%86/">常识</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    几秒 读完 (大约 102 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux%E5%91%BD%E4%BB%A4%E2%80%94%E2%80%94cd/">Linux——cd</a>
-            
-        </h1>
-        <div class="content">
-            <html><head></head><body><p>Note：<br>/代表的是文件系统的根，可以理解一种表示范围限定的符。<br>/下面有一个root目录，代表的是超级用户目录，两个是不同的概念。</p>
-<pre><code>cd ..       返回上次目录
-cd ~       转到用户目录
-cd -           回到上一次所在目录
-cd ../dir  回到上层目录后又进入dir目录
-cd /     回到根目录</code></pre></body></html>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -744,7 +757,7 @@ cd /     回到根目录</code></pre></body></html>
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -768,7 +781,7 @@ cd /     回到根目录</code></pre></body></html>
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            26
+                            28
                         </p>
                     </a>
                 </div>
@@ -867,7 +880,7 @@ cd /     回到根目录</code></pre></body></html>
                 <span class="level-item">计算机</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">25</span>
+                <span class="level-item tag">26</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/">
@@ -883,7 +896,7 @@ cd /     回到根目录</code></pre></body></html>
                 <span class="level-item">常识</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
@@ -928,7 +941,7 @@ cd /     回到根目录</code></pre></body></html>
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/KNN/" style="font-size: 10px;">KNN</a> <a href="/tags/KSUM/" style="font-size: 10px;">KSUM</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/%E4%BA%A4%E9%9B%86/" style="font-size: 10px;">交集</a> <a href="/tags/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C/" style="font-size: 10px;">分支限界</a> <a href="/tags/%E5%89%8DK%E5%A4%A7%E6%95%B0/" style="font-size: 10px;">前K大数</a> <a href="/tags/%E5%89%8D%E5%90%91%E6%98%9F/" style="font-size: 10px;">前向星</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">单例模式</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E6%B5%81/" style="font-size: 10px;">字符流</a> <a href="/tags/%E5%AD%97%E8%8A%82%E6%B5%81/" style="font-size: 10px;">字节流</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 10px;">循环</a> <a href="/tags/%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91/" style="font-size: 10px;">指数基金</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%9D%83%E5%80%BC%E7%AE%97%E6%B3%95/" style="font-size: 10px;">权值算法</a> <a href="/tags/%E6%A0%91%E5%90%8C%E6%9E%84/" style="font-size: 10px;">树同构</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">树状数组</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6/" style="font-size: 10px;">计算复杂度</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 20px;">链表</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/" style="font-size: 10px;">随机数</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95/" style="font-size: 10px;">随机算法</a>
+        <a href="/tags/KNN/" style="font-size: 10px;">KNN</a> <a href="/tags/KSUM/" style="font-size: 10px;">KSUM</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/transient/" style="font-size: 10px;">transient</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/%E4%BA%A4%E9%9B%86/" style="font-size: 10px;">交集</a> <a href="/tags/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C/" style="font-size: 10px;">分支限界</a> <a href="/tags/%E5%89%8DK%E5%A4%A7%E6%95%B0/" style="font-size: 10px;">前K大数</a> <a href="/tags/%E5%89%8D%E5%90%91%E6%98%9F/" style="font-size: 10px;">前向星</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">单例模式</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E6%B5%81/" style="font-size: 10px;">字符流</a> <a href="/tags/%E5%AD%97%E8%8A%82%E6%B5%81/" style="font-size: 10px;">字节流</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">序列化</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 10px;">循环</a> <a href="/tags/%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91/" style="font-size: 10px;">指数基金</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%9D%83%E5%80%BC%E7%AE%97%E6%B3%95/" style="font-size: 10px;">权值算法</a> <a href="/tags/%E6%A0%91%E5%90%8C%E6%9E%84/" style="font-size: 10px;">树同构</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">树状数组</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6/" style="font-size: 10px;">计算复杂度</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 20px;">链表</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/" style="font-size: 10px;">随机数</a> <a href="/tags/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95/" style="font-size: 10px;">随机算法</a>
     </div>
 </div>
     
@@ -937,6 +950,19 @@ cd /     回到根目录</code></pre></body></html>
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-11T13:01:34.000Z">2020-01-11</time></div>
+                    <a href="/2020/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/" class="title has-link-black-ter is-size-6 has-text-weight-normal">transient关键字与序列化</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B8%B8%E8%AF%86/">常识</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -990,19 +1016,6 @@ cd /     回到根目录</code></pre></body></html>
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-29T05:24:06.000Z">2019-12-29</time></div>
-                    <a href="/2019/12/29/%E8%AE%A1%E7%AE%97%E6%9C%BA/ss%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%85%8D%E7%BD%AE/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vps实现ss代理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B7%A5%E5%85%B7/">工具</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1020,7 +1033,7 @@ cd /     回到根目录</code></pre></body></html>
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1187,6 +1200,13 @@ cd /     回到根目录</code></pre></body></html>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/transient/">
+                        <span class="tag">transient</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/vector/">
                         <span class="tag">vector</span>
                         <span class="tag is-grey">1</span>
@@ -1245,6 +1265,13 @@ cd /     回到根目录</code></pre></body></html>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%AD%97%E8%8A%82%E6%B5%81/">
                         <span class="tag">字节流</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/">
+                        <span class="tag">序列化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

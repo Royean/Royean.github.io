@@ -8,18 +8,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档: 2020/1 - Gujiewei&#39;s Blog</title>
+<title>transient关键字与序列化 - Gujiewei&#39;s Blog</title>
 
 
-    <meta name="description" content="Gujiewei">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gujiewei&#39;s Blog">
-<meta property="og:url" content="http://www.gujiewei.site/archives/2020/01/index.html">
+    <meta name="description" content="背景序列化 在编码过程中，我们也会遇到将使用的对象信息通过网络传输到另一端，又或者将对象信息保存下来，存储成文件形式保存在电脑硬盘上，以供下次提取使用，我们把 抽取对象信息并转化为二进制形式流的过程称之为序列化过程。 持久化 将信息持久化指的是将信息存储在不易失媒介上，内存上的信息在电脑断电后都会消失，而诸如硬盘、磁带等设备上的信息不会丢失，所以称这些数据是持久的，所以和数据库相关的层也会被称为持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="transient关键字与序列化">
+<meta property="og:url" content="http://www.gujiewei.site/2020/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="Gujiewei&#39;s Blog">
-<meta property="og:description" content="Gujiewei">
+<meta property="og:description" content="背景序列化 在编码过程中，我们也会遇到将使用的对象信息通过网络传输到另一端，又或者将对象信息保存下来，存储成文件形式保存在电脑硬盘上，以供下次提取使用，我们把 抽取对象信息并转化为二进制形式流的过程称之为序列化过程。 持久化 将信息持久化指的是将信息存储在不易失媒介上，内存上的信息在电脑断电后都会消失，而诸如硬盘、磁带等设备上的信息不会丢失，所以称这些数据是持久的，所以和数据库相关的层也会被称为持">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.gujiewei.site/images/og_image.png">
+<meta property="article:published_time" content="2020-01-11T13:01:34.000Z">
+<meta property="article:modified_time" content="2020-01-11T13:01:37.076Z">
 <meta property="article:author" content="roy">
+<meta property="article:tag" content="transient">
+<meta property="article:tag" content="序列化">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://www.gujiewei.site/images/og_image.png">
 
@@ -87,7 +91,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/Glogo.png" alt="Gujiewei&#39;s Blog" height="28">
+                <img src="/images/Glogo.png" alt="transient关键字与序列化" height="28">
             
             </a>
         </div>
@@ -126,110 +130,156 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        一月 2020
-        </h3>
-        <div class="timeline">
+<div class="card">
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-11T13:01:34.000Z">2020-01-11</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-01-11T13:01:34.000Z">2020-01-11</time>
-                        <a href="/2020/01/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/transient%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/" class="title has-link-black-ter is-size-6 has-text-weight-normal">transient关键字与序列化</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B8%B8%E8%AF%86/">常识</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B8%B8%E8%AF%86/">常识</a>
                 </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-01-10T14:00:44.000Z">2020-01-10</time>
-                        <a href="/2020/01/10/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">树状数组</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-01-08T10:57:52.113Z">2020-01-08</time>
-                        <a href="/2020/01/08/%E7%90%86%E8%B4%A2/%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91/" class="title has-link-black-ter is-size-6 has-text-weight-normal">基金定投</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E7%90%86%E8%B4%A2/">理财</a> / <a class="has-link-grey -link" href="/categories/%E7%90%86%E8%B4%A2/%E5%9F%BA%E9%87%91/">基金</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1175 个字)
+                </span>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-01-05T10:33:06.000Z">2020-01-05</time>
-                        <a href="/2020/01/05/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%AD%97%E8%8A%82%E6%B5%81%E5%92%8C%E5%AD%97%E7%AC%A6%E6%B5%81%E6%8E%A2%E7%A9%B6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">字节流和字符流探究</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%B8%B8%E8%AF%86/">常识</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-01-04T08:24:06.000Z">2020-01-04</time>
-                        <a href="/2020/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA/SSM%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81url-pattern%E5%AF%BC%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SSM框架学习——数据库、url-pattern导致的问题</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%A1%86%E6%9E%B6/">框架</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                transient关键字与序列化
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><strong>序列化</strong></p>
+<p>在编码过程中，我们也会遇到将使用的对象信息通过网络传输到另一端，又或者将对象信息保存下来，存储成文件形式保存在电脑硬盘上，以供下次提取使用，我们把 <strong>抽取对象信息并转化为二进制形式流的过程称之为序列化过程</strong>。</p>
+<p><strong>持久化</strong></p>
+<p>将信息持久化指的是将信息存储在不易失媒介上，内存上的信息在电脑断电后都会消失，而诸如硬盘、磁带等设备上的<strong>信息不会丢失，所以称这些数据是持久</strong>的，所以和数据库相关的层也会被称为持久化层，因为他们的工作就是将数据持久化存储。</p>
+<h1 id="transient-意义"><a href="#transient-意义" class="headerlink" title="transient 意义"></a>transient 意义</h1><p>transient，英文名字就是<strong>瞬态的</strong>意思，意思是这个信息只是暂时在这个特定情况有意义，和计算机中<strong>持久的</strong>相对，需要持久化的信息代表这个信息在长远有一定意义。</p>
+<p>java中对transient关键字的作用有如下描述：</p>
+<blockquote>
+<p>Variables may be marked <code>transient</code> to indicate that they are not part of the persistent state of an object.                         —— 摘自java手册</p>
+<p>当类成员字段被表明为transient时，则表明这个字段信息不具有将其持久保存或转化的意义。</p>
+</blockquote>
+<p>transient只能用在类字段上，如果加上，表示该字段不需要转化，否则将其转化。<br><strong>Attention：不是所有的对象都能转化，只有实现了serialiable接口的类成员对象才能转化</strong></p>
+<a id="more"></a>
+
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span></span>{</span><br><span class="line">    <span class="hljs-keyword">int</span> x, y; <span class="hljs-comment">//这两个会被序列化</span></span><br><span class="line">    <span class="hljs-keyword">transient</span> <span class="hljs-keyword">float</span> rho, theta;  <span class="hljs-comment">//这两个字段信息不会被转化</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="serializable接口"><a href="#serializable接口" class="headerlink" title="serializable接口"></a>serializable接口</h1><p><strong>transient关键字与serialiable接口</strong> 意义区分</p>
+<p>java使用serializable接口来标记一个类<strong>是否可以</strong>序列化。</p>
+<p>transient关键字则说明了某个字段<strong>是否需要</strong>序列化。</p>
+<p>必须实现了serializable接口的类中再去使用transient关键字，否则没意义啊！毕竟你要先决定这个类可不可以序列化，再去决定需要序列化哪些信息。</p>
+<p><strong>serializable的实现</strong></p>
+<p>去看java源代码，发现serializable接口中并没有任何方法，是一个空的接口。</p>
+<p><img src="https://s2.ax1x.com/2020/01/11/lIYdXV.png" alt></p>
+<p>空的接口没什么意义啊，为什么要这么做呢？经查询，原来这个接口只是起到一个<strong>标记</strong>的作用，不具有其他意义，他告诉jvm这个类是可以序列化的。</p>
+<p><strong>那么具体的序列化是怎么实现的呢？</strong></p>
+<p>通过<strong>ObjectOutputStream</strong>和<strong>ObjectInputStream</strong>两个类实现。</p>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objectOutputStream.writeObject(object <span class="hljs-comment">/*参数为需要序列化的类*/</span>);  <span class="hljs-comment">// 序列化</span></span><br><span class="line">objectInputStream.readObject(object);  <span class="hljs-comment">// 解序列化</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NameStore</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span></span>{</span><br><span class="line">    <span class="hljs-keyword">private</span> String firstName;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> String middleName;  <span class="hljs-comment">//这个字段不会被序列化</span></span><br><span class="line">    <span class="hljs-keyword">private</span> String lastName;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NameStore</span> <span class="hljs-params">(String fName, String mName, String lName)</span></span>{</span><br><span class="line">        <span class="hljs-keyword">this</span>.firstName = fName;</span><br><span class="line">        <span class="hljs-keyword">this</span>.middleName = mName;</span><br><span class="line">        <span class="hljs-keyword">this</span>.lastName = lName;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>{</span><br><span class="line">        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-number">40</span>);</span><br><span class="line">        sb.append(<span class="hljs-string">"First Name : "</span>);</span><br><span class="line">        sb.append(<span class="hljs-keyword">this</span>.firstName);</span><br><span class="line">        sb.append(<span class="hljs-string">"Middle Name : "</span>);</span><br><span class="line">        sb.append(<span class="hljs-keyword">this</span>.middleName);</span><br><span class="line">        sb.append(<span class="hljs-string">"Last Name : "</span>);</span><br><span class="line">        sb.append(<span class="hljs-keyword">this</span>.lastName);</span><br><span class="line">        <span class="hljs-keyword">return</span> sb.toString();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TransientExample</span></span>{</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span> <span class="hljs-keyword">throws</span> Exception </span>{</span><br><span class="line">        NameStore nameStore = <span class="hljs-keyword">new</span> NameStore(<span class="hljs-string">"Steve"</span>, <span class="hljs-string">"Middle"</span>,<span class="hljs-string">"Jobs"</span>);</span><br><span class="line">        ObjectOutputStream o = <span class="hljs-keyword">new</span> ObjectOutputStream(<span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-string">"nameStore"</span>));</span><br><span class="line">        <span class="hljs-comment">// writing to object</span></span><br><span class="line">        o.writeObject(nameStore);</span><br><span class="line">        o.close();</span><br><span class="line">        ArrayList</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">// reading from object</span></span><br><span class="line">        ObjectInputStream in = <span class="hljs-keyword">new</span> ObjectInputStream(<span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">"nameStore"</span>));</span><br><span class="line">        NameStore nameStore1 = (NameStore)in.readObject();</span><br><span class="line">        System.out.println(nameStore1);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出：</span><br><span class="line">    First Name : Steve  Middle Name : null  Last Name : Jobs</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可见，MiddleName没有被序列化。</p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><ol>
+<li><p>什么样的数据可以序列化，什么样的不可以呢？</p>
+<p>什么样的对象从根本来说都可以序列化，但是有的对象序列化是没有意义的，比如socket和文件等，所以这些类没有实现Serializable接口，也就不能序列化。</p>
+</li>
+<li><p>很多类种有SerialVersionUID，它是用来干嘛的？</p>
+<p>这个UID为每个类生成了一个唯一标识符，如此jvm可以利用这个标识符来比较序列化和解序列化过程中两个类是不是相同，以确保解序列化时的类加载正确。如果你没有自己主动生成，jvm会自动帮你制定一个。</p>
+</li>
+</ol>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>1.<a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.3.1.3" target="_blank" rel="noopener">java规范说明</a></p>
+<p>2.<a href="https://stackoverflow.com/questions/16851070/java-what-can-and-what-cant-be-serialized" target="_blank" rel="noopener">Java: What can and what can’t be serialized?</a></p>
+<p>3.<a href="https://stackoverflow.com/questions/910374/why-does-java-have-transient-fields" target="_blank" rel="noopener">Why does Java have transient fields?</a></p>
+<p>4.<a href="https://stackoverflow.com/questions/8017806/although-the-serializable-interface-in-java-has-no-methods-no-fields-it-can-ac" target="_blank" rel="noopener">Although the Serializable interface in Java has no methods, no fields, it can achieve its function. How?</a></p>
+</body></html>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/transient/" rel="tag">transient</a>, <a class="has-link-grey -link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.png" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="gjw0524@foxmail.com" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/10/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">
+                <span class="level-item">树状数组</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -890,7 +940,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/Glogo.png" alt="Gujiewei&#39;s Blog" height="28">
+                    <img src="/images/Glogo.png" alt="transient关键字与序列化" height="28">
                 
                 </a>
                 <p class="is-size-7">
