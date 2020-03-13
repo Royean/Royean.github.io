@@ -8,21 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>单例模式——多线程优化 - Gujiewei&#39;s Blog</title>
+<title>标签: 梯度下降 - Gujiewei&#39;s Blog</title>
 
 
-    <meta name="description" content="double-check  和 synchronized 实现单例模式在多线程下的优化。public class Singleton {        private volatile static Singleton s&#x3D;null;        private Singleton(){}        public static Singleton getInstance(){">
-<meta property="og:type" content="article">
-<meta property="og:title" content="单例模式——多线程优化">
-<meta property="og:url" content="http://www.gujiewei.site/2019/03/16/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BC%98%E5%8C%96/index.html">
+    <meta name="description" content="Gujiewei">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gujiewei&#39;s Blog">
+<meta property="og:url" content="http://www.gujiewei.site/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/index.html">
 <meta property="og:site_name" content="Gujiewei&#39;s Blog">
-<meta property="og:description" content="double-check  和 synchronized 实现单例模式在多线程下的优化。public class Singleton {        private volatile static Singleton s&#x3D;null;        private Singleton(){}        public static Singleton getInstance(){">
+<meta property="og:description" content="Gujiewei">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.gujiewei.site/images/og_image.png">
-<meta property="article:published_time" content="2019-03-16T08:08:42.000Z">
-<meta property="article:modified_time" content="2020-01-05T12:06:13.747Z">
 <meta property="article:author" content="roy">
-<meta property="article:tag" content="单例模式">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://www.gujiewei.site/images/og_image.png">
 
@@ -90,7 +87,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/Glogo.png" alt="单例模式——多线程优化" height="28">
+                <img src="/images/Glogo.png" alt="Gujiewei&#39;s Blog" height="28">
             
             </a>
         </div>
@@ -128,24 +125,35 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">梯度下降</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-16T08:08:42.000Z">2019-03-16</time>
+                <time class="level-item has-text-grey" datetime="2020-02-11T05:56:06.000Z">2020-02-11</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 168 个字)
+                    6 分钟 读完 (大约 923 个字)
                 </span>
                 
                 
@@ -154,116 +162,35 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                单例模式——多线程优化
+                <a class="has-link-black-ter" href="/2020/02/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/">线性回归模型</a>
             
         </h1>
         <div class="content">
-            <html><head></head><body><h3 id="double-check-和-synchronized-实现单例模式在多线程下的优化。"><a href="#double-check-和-synchronized-实现单例模式在多线程下的优化。" class="headerlink" title="double-check  和 synchronized 实现单例模式在多线程下的优化。"></a>double-check  和 synchronized 实现单例模式在多线程下的优化。</h3><pre><code>public class Singleton {
-       private volatile static Singleton s=null;
-       private Singleton(){}
-       public static Singleton getInstance(){
-           if(s==null){
-               synchronized (Singleton.class){
-                   if(s==null){
-                       s=new Singleton();
-                   }
-               }
-           }
-           return s;
-       }
-       public static void print(){
-           System.out.print("this is the print function");
-       }
-       public static void main(String[] args){
-           Singleton s=Singleton.getInstance();
-           s.print();
-       }
-   }</code></pre><p><strong>1.为什么不在成员变量里直接new？</strong><br>    没有必要在类加载时就实例化，节省空间。<br>    <strong>2.synchronized有什么作用</strong><br>    防止多线程下会创建多个实例。<br>    <strong>3.为什么synchronized里还有一个null判断</strong><br>    第一个线程创建后，后面线程就没有必要创建了，所以s是volatile定义的。</p>
-</body></html>
+            <html><head></head><body><p><strong>基本结构</strong><br>$$<br>y = w^T\cdot X + b<br>$$<br><strong>数据集</strong></p>
+<p>通常收集一系列的真实数据，如果多栋房屋的真实出售价格和他们对应的面积和房龄。</p>
+<p>我们希望在数据集上寻找模型参数来使得预测价格和真实价格误差最小。</p>
+<p>该数据集被称为训练数据集，每个房屋被称为一个样本，真实的售出价格叫做标签，用来预测标签的因素叫做特征，特征用来表示样本的特点。</p>
+<p>$$<br>\mathrm{price} = w_{\mathrm{area}} \cdot \mathrm{area} + w_{\mathrm{age}} \cdot \mathrm{age} + b<br>$$</p></body></html>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a>
+                <a class="button is-size-7 is-light" href="/2020/02/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechatpay.png" alt="微信"></div>
-</a>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
-    <span class="icon is-small">
-        <i class="fab fa-paypal"></i>
-    </span>
-    <span>Paypal</span>
-</a>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="gjw0524@foxmail.com" />
-    <input type="hidden" name="currency_code" value="USD" />
-</form>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/11/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%A0%86/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">堆</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E9%9A%8F%E6%9C%BA%E4%B8%8D%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97%E7%94%9F%E6%88%90/">
-                <span class="level-item">不重复随机数字生成</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -965,7 +892,7 @@ tags:[softmax,交叉熵]</a>
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/Glogo.png" alt="单例模式——多线程优化" height="28">
+                    <img src="/images/Glogo.png" alt="Gujiewei&#39;s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">
